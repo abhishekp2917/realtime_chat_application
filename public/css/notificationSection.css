@@ -1,0 +1,42 @@
+#notification_section{
+    background-color: #eee;
+    height: 100vh;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    z-index: 100;
+    transition: left 0.5s;
+}
+
+#notification_section #notification_nav_bar{
+    background-color: #008069;
+    height: 10rem;
+}
+
+#notification_list .notify_profile_img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#notification_list .notify_info{
+    font-size: 0.75rem;
+}
+
+.notification_container{
+    background-color: rgb(226, 226, 226);
+}
+
+#notification_list .new_notification{
+    background-color: white;
+}
+
+#notification_list .accept_request_btn{
+    background-color: #008069;
+}
+
+#notification_list .reject_request_btn{
+    background-color: #878787;
+}
+

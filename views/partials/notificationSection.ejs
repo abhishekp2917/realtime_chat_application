@@ -1,0 +1,79 @@
+    <div id="notification_section" class="col-lg-4 col-md-5 col-12 p-0 d-flex flex-column position-absolute">
+        <!-- search people nav bar -->
+        <div id="notification_nav_bar" class="d-flex justify-content-between py-2 px-3">
+            <div class="button_container d-flex justify-content-center align-items-end">
+                <button id="notification_to_friend_btn" class="text-white d-bigger"><i class="fas fa-arrow-left"></i></button><div class="title text-white ml-4 d-bigger">Notification</div>
+            </div>
+        </div>
+
+        <!-- notification list -->
+        <ul id="notification_list" class="list" class="list-unstyled bg-white m-0">
+            <% 
+            const date = new Date()
+            const curr_time = parseInt(date.getTime()/1000)
+
+            notificationList.forEach(notification => {
+
+                if(notification.notify_type=="friend request"){
+            %>
+                    <li class="notification_container <% if(notification.notify_seen==0){%> new_notification <%}%> d-flex p-2 px-3">
+                        <div class="notify_img_container d-flex align-items-center mr-3">
+                            <img class="notify_profile_img" src="assets/user_profile/<%= notification.user_profile_photo%>" alt="friend_profile_img">
+                        </div>
+                        <div class="notify_info d-flex flex-column w-100 py-1">
+                            <p class="notify_message mb-1"><span class="notify_name font-weight-bold mr-2"><%= notification.user_name%></span>sent you a friend request</p>
+                            <div class="d-flex">
+                                <button class="accept_request_btn w-100 d-small p-2 m-1 text-white" data-user_id="<%= notification.user_id%>">
+                                    <i class='fas fa-user-plus mr-2'></i>Accept
+                                </button>
+                                <button class="reject_request_btn w-100 d-small p-2 m-1 text-white" data-user_id="<%= notification.user_id%>">              
+                                    <i class="fa fa-ban mr-2" aria-hidden="true"></i>Reject
+                                </button>
+                            </div>
+                        </div>
+                    </li>
+            <%
+                }
+                else if(notification.notify_type=="accept friend request"){
+            %>
+                    <li class="notification_container <% if(notification.notify_seen==0){%> new_notification <%}%>  d-flex p-2 px-3">
+                        <div class="notify_img_container d-flex align-items-center mr-3">
+                            <img class="notify_profile_img" src="assets/user_profile/<%= notification.user_profile_photo%>" alt="friend_profile_img">
+                        </div>
+                        <div class="notify_info d-flex flex-column w-100 py-1 position-relative">
+                            <p class="notify_message mb-1 d-flex align-items-center"><span class="notify_name font-weight-bold mr-2"><%= notification.user_name%></span>accepted your friend request<i class="material-icons ml-2">mood</i></p>
+                            <p class="notify_time"><%= timePassed(curr_time, notification.notify_time)%></p>
+                        </div>
+                    </li>
+            <%
+                }
+                else if(notification.notify_type=="reject friend request"){
+            %>
+                    <li class="notification_container <% if(notification.notify_seen==0){%> new_notification <%}%>  d-flex p-2 px-3">
+                        <div class="notify_img_container d-flex align-items-center mr-3">
+                            <img class="notify_profile_img" src="assets/user_profile/<%= notification.user_profile_photo%>" alt="friend_profile_img">
+                        </div>
+                        <div class="notify_info d-flex flex-column w-100 py-1 position-relative">
+                            <p class="notify_message mb-1 d-flex align-items-center"><span class="notify_name font-weight-bold mr-2"><%= notification.user_name%></span>rejected your friend request<i class="material-icons ml-2">sentiment_very_dissatisfied</i></p>
+                            <p class="notify_time"><%= timePassed(curr_time, notification.notify_time)%></p>
+                        </div>
+                    </li>
+            <%
+                }
+                else if(notification.notify_type=="unfriend request"){
+            %>
+                <li class="notification_container <% if(notification.notify_seen==0){%> new_notification <%}%>  d-flex p-2 px-3">
+                    <div class="notify_img_container d-flex align-items-center mr-3">
+                        <img class="notify_profile_img" src="assets/user_profile/<%= notification.user_profile_photo%>" alt="friend_profile_img">
+                    </div>
+                    <div class="notify_info d-flex flex-column w-100 py-1 position-relative">
+                        <p class="notify_message mb-1 d-flex align-items-center"><span class="notify_name font-weight-bold mr-2"><%= notification.user_name%></span>unfriend you<i class="material-icons ml-2">sentiment_very_dissatisfied</i></p>
+                        <p class="notify_time"><%= timePassed(curr_time, notification.notify_time)%></p>
+                    </div>
+                </li>
+            <%
+                }
+            })
+            %>
+        </ul>
+    </div>

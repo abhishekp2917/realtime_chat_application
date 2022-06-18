@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/chatSection.css">
+    <link rel="stylesheet" href="css/friendSection.css">
+    <link rel="stylesheet" href="css/peopleSection.css">
+    <link rel="stylesheet" href="css/notificationSection.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.css"  />
+    <title>Home</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row p-0 position-relative">
+            <%- include('partials/notificationSection.ejs'); %>
+            <%- include('partials/searchPeopleSection'); %>
+            <%- include('partials/friendSection'); %>
+            <%- include('partials/chatSection'); %>
+        </div>
+    </div>
+
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- socket.io CDN -->
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <!-- emoji CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.min.js" ></script>
+    
+    <script src="js/socket.js"></script>
+    <script src="js/chatSectionDeclaration.js"></script>
+    <script src="js/friendSectionDeclaration.js"></script>
+    <script src="js/peopleSectionDeclaration.js"></script>
+    <script src="js/notificationSectionDeclaration.js"></script>
+    <script src="js/chatSection.js"></script>
+    <script src="js/friendSection.js"></script>
+    <script src="js/peopleSection.js"></script>
+    <script src="js/searchPeople.js"></script>
+    <script src="js/notificationSection.js"></script>
+</html>
+

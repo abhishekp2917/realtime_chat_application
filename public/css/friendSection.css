@@ -1,0 +1,79 @@
+#friend_section{
+    height: 100vh;
+    z-index: 20;
+}
+
+.nav_bar{
+    background-color: #008069;
+    height: 65px;
+}
+
+.nav_bar #user_profile_photo{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#notification_count{
+    top: 0.25rem;
+    right: 0.75rem;
+    width: 17px;
+    height: 17px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+
+
+
+
+.search_friend{
+    background-color: #008069;
+}
+
+.search_friend .input_container{
+    border-radius: 0.5rem;
+    background-color: #eee;
+}
+
+.search_friend .input_container button i{
+    font-size: 1.5rem;
+}
+
+.search_friend .input_container input, button i{
+    border:0px;
+    border-radius: 0.5rem;
+}
+
+
+
+.list .friend_overview .last_message{
+    max-width: 70%;
+    display: inline-block;
+}
+
+.list .friend_overview .new_msg_count{
+    bottom: 0.25rem;
+    right: 0.25rem;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.list .active{
+    background-color: #dcdcdc;
+}
+
+
+
+

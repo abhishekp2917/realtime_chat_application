@@ -1,0 +1,60 @@
+    <div id="friend_section" class="col-lg-4 col-md-5 col-12 p-0 bg-white d-flex flex-column position-absolute">
+        <!-- nav bar -->
+        <div class="nav_bar d-flex justify-content-between py-2 px-3">
+            <img id="user_profile_photo" src="assets/user_profile/<%= user[0].user_profile_photo%>" data-user_id="<%= user[0].user_id%>" alt="user_profile">
+            <div class="button_container d-flex justify-content-center align-items-center">
+                <div class="position-relative">
+                    <button id="notification_btn"><i class="material-icons text-white p-2 mx-2">notifications</i></button>
+                    <% if(unseenNotificationCount>0){
+                    %>
+                    <span id="notification_count" class="position-absolute p-1 text-white d-small"><%= unseenNotificationCount%></span>
+                    <%
+                    }else{
+                    %>
+                    <span id="notification_count" class="position-absolute p-1 text-white d-small d-none"></span>
+                    <%
+                    }
+                    %>
+                </div>
+                <div class="position-relative">
+                    <button id="people_btn"><i class="material-icons text-white p-2 mx-2">group_add</i></button>
+                </div>
+                <div class="position-relative">
+                    <button id="setting_btn"><i class="material-icons text-white p-2 mx-2">more_vert</i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- search bar -->
+        <div class="search_friend py-2 px-3">
+            <div class="input_container d-flex p-1">
+                <button id="search_chat_btn"><i class="material-icons p-1">search</i></button>
+                <input type="text" id="search_chat" name="search_chat" class="w-100 p-1 d-small" placeholder="Search or start new chat">
+            </div>
+        </div>
+
+        <!-- chat list -->
+        <ul class="list" class="list-unstyled bg-white m-0">
+            <% friendList.forEach(friend => {
+            %>
+                <li id="friend_overview_<%=friend.user_id%>" data-user_id="<%= friend.user_id%>" class="friend_overview d-flex p-2 px-3 <% if(friend.chat_opened==1){%> active <%}%>">
+                    <div class="img_container mr-3">
+                        <img class="friend_profile_img" src="assets/user_profile/<%= friend.user_profile_photo%>" alt="friend_profile_img">
+                    </div>
+                    <div class="chat_info d-flex flex-column w-100 py-1 position-relative">
+                        <p><span class="friend_name"><%= friend.user_name%></span><span class="last_message_time float-right"><%= friend.last_chat_date%></span></p>
+                        <p class="last_message overflow-hidden"><% if(friend.last_chat!=""){ %> <%=`${friend.last_chat}...`%> <% } %></p>
+                        <% if(friend.unseen_chats>0){%>
+                            <span id="new_msg_count_<%=friend.user_id%>" class="new_msg_count position-absolute p-1 text-white d-small"><%= friend.unseen_chats%></span>
+                        <%}
+                        else{
+                        %>
+                            <span id="new_msg_count_<%=friend.user_id%>" class="new_msg_count position-absolute p-1 text-white d-small d-none"></span>
+                        <%
+                        }%>
+                    </div>
+                </li>
+            <%
+            })%>
+        </ul>
+    </div>

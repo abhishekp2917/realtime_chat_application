@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Smooch&family=Ubuntu:wght@500&display=swap');
+
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+button{
+    border: none;
+    outline: none;
+    background-color: transparent
+}
+
+p{
+    margin: 0;
+}
+
+input{
+    border: none;
+    border-bottom: 3px solid transparent;
+    outline: none;
+    background-color: #eee;
+    font-size: 14px;
+}
+
+input:focus{
+    border-bottom: 3px solid #008069;
+}
+
+#logo_section{
+    background-image: linear-gradient(#008069, #053c5a);
+    height: 100vh;
+    overflow: hidden;
+}
+/*  */
+#logo_section #img1_container{
+    position: absolute;
+    top: -15%;
+    left: -15%;
+    border: 5px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    z-index: 2;
+}
+
+#logo_section #img1_container #logo1_img{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+#logo_section #img2_container{
+    position: absolute;
+    top: 15%;
+    right: 15%;
+    border: 3px solid white;
+    border-radius: 50%;
+    padding: 5px;
+    z-index: 2;
+}
+
+#logo_section #img2_container #logo2_img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#logo_section #logo{
+    font-size: 7rem;
+    font-weight: 400;
+    font-family: 'Smooch', cursive;
+}
+
+#logo_section #circle{
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    bottom: -50%;
+    left: -20%;
+    border: 5px solid white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#logo_section #logo span{
+    font-size: 4rem;
+}
+
+#logo_section p{
+    font-size: 3rem;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p, label, button, input{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#form_section{
+    background-image: url(../assets/chat_background/background.png);
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#form_body .switch_btn{
+    background-image: linear-gradient(#008069, #053c5a);
+    opacity: 0.5;
+}
+
+#form_body .active{
+    opacity: 1;
+}
+
+.form_error{
+    background-color: rgb(255, 206, 206);
+    color: red;
+    border: 1px solid red;
+    border-radius: 0.5rem;
+    font-size: 12px;
+    display: none;
+}
+#signin_form_error{
+    display: none;
+}
+
+#signup_form_error{
+    display: none;
+}
+
+.input_container{
+    background-color: #eee;
+    border-radius: 0.25rem;
+}
+
+.input_container i{
+    width: 1.5rem;
+    opacity: 0.5;
+}
+
+#signin_btn{
+    background-image: linear-gradient(#008069, #053c5a);
+}
+
+
+#signup_container{
+    display: none;
+}
+
+#signup_btn{
+    background-image: linear-gradient(#008069, #053c5a);
+}

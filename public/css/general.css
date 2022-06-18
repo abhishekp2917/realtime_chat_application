@@ -1,0 +1,82 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+button{
+    border: none;
+    outline: none;
+    background-color: transparent
+}
+
+p{
+    margin: 0 !important;
+}
+
+input{
+    border: none;
+    outline: none;
+    background-color: #eee;
+}
+
+.d-small{
+    font-size: 0.75rem;
+}
+
+.d-mdeium{
+    font-size: 0.75rem;
+}
+
+.d-big{
+    font-size: 1rem;
+}
+
+.d-bigger{
+    font-size: 1.5rem;
+}
+
+
+
+
+.list{
+    height: 100%;
+    overflow: auto;
+}
+
+.list::-webkit-scrollbar{
+    display: none;
+}
+
+.list .friend_overview:hover{
+    background-color: #dcdcdc;
+}
+
+.list .friend_overview .friend_profile_img{
+
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.list .friend_overview .friend_name{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.list .friend_overview .last_message, .last_message_time{
+    font-size: 0.75rem;
+}
+
+
+
+.show-block{
+    display: block !important;
+}
+
+.show-flex{
+    display: flex !important;
+}
+
+

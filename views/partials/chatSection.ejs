@@ -1,0 +1,80 @@
+    <div class="chat_section col-lg-8 col-md-7 col-12 p-0 d-flex justify-content-center align-items-center position-absolute">
+        <div class="intro_container position-absolute p-5">
+            <div class="intro_img_container">
+                <img class="w-100 h-100" src="assets/chat_background/intro_background.jpg" alt="chat_intro">
+            </div>
+            <div class="intro p-2">
+                <p class="text-center my-4 d-bigger">Start Chatting</p>
+                <p class="text-center my-2">Send and Receive messages, make friends and connect to the world in seconds</p>
+                <p class="text-center"><i class='fas fa-lock mx-2'></i>end-to-end-encrypted</p>
+            </div>
+        </div>
+    </div>
+    
+  <% friendList.forEach((friend, idx) =>{
+    %>
+    <div data-user_id="<%= friend.user_id%>" id="chat_section_<%= friend.user_id%>" class="chat_section col-lg-8 col-md-7 col-12 p-0 d-none flex-column justify-content-between position-absolute">
+        <!-- chat nav bar -->
+        <div class="chat_nav_bar d-flex justify-content-between p-2 px-3">
+            <button class="back_to_friend_btn text-white d-big mr-1 d-md-none"><i class="fas fa-arrow-left"></i></button>
+            <div class="friend_profile_img_container mr-3 d-flex justify-content-center align-items-center">
+                <img class="friend_profile_img" src="assets/user_profile/<%= friend.user_profile_photo%>" alt="friend_profile_img">
+            </div>
+            <div class="friend_info d-flex flex-column justify-content-center text-white w-100">
+                <p class="friend_name"><%= friend.user_name%></p>
+                <p id="activity_status_<%=friend.user_id%>" class="activity_status"><% if(friend.user_active==1){%> Online<%}%></p>
+            </div>
+            <button class="chat_option_btn text-white"><i class="material-icons">more_horiz</i></button>
+
+            <div class="popup_option position-absolute bg-white">
+                <ul class="list-unstyled">
+                    <li class="contact_info_btn p-2 pl-3 d-big"><button>Contact Info</button></li>
+                    <li class="clear_chat_btn p-2 pl-3 d-big"><button>Clear Messages</button></li>
+                    <li class="block_btn p-2 pl-3 d-big"><button>Block</button></li>
+                </ul>
+            </div>
+        </div>
+        <!-- chat content -->
+        <div id="chat_content_<%=friend.user_id%>" class="chat_content px-3">
+
+            <%
+                chats[idx].forEach(chat => {
+
+                    if(chat.chat_source==friend.user_id){
+            %>
+                        <!-- incoming message -->
+                        <div id="message_container_<%=chat.chat_id%>" data-source="<%=friend.user_id%>" data-target="<%=user.user_id%>" class="message_container my-1 d-flex">
+                            <div class="income_message bg-white p-2 d-inline-block">
+                                <p class="message"><%= chat.chat_content%></p>
+                                <span class="time pt-1 d-small"><%=chat.chat_time%></span>
+                            </div>
+                        </div>
+            <%
+                    }
+                    else if(chat.chat_source==user[0].user_id){
+            %>
+                        <!-- outgoing message -->
+                        <div id="message_container_<%=chat.chat_id%>" data-source="<%=user.user_id%>" data-target="<%=friend.user_id%>" class="message_container my-1 d-flex justify-content-end">
+                            <div class="outgoing_message p-2 d-inline-block">
+                                <p class="message"><%= chat.chat_content%></p>
+                                <span class="time pt-1 d-small"><%=chat.chat_time%> <% if(chat.chat_seen==1){ %><i class="chat_seen fas fa-check ml-1"></i> <% }else{ %><i class="fas fa-check ml-1"></i><% } %></span>
+                            </div>
+                        </div>
+            <%
+                    }
+                })
+            %>
+        </div>
+        <!-- user input -->
+        <div class="user_input_section d-flex p-2 align-items-center">
+            <div class="user_input_container d-flex w-100 bg-white justify-content-center align-items-center">
+                <button id="emoji_btn_<%=friend.user_id%>" class="emoji_btn p-1 mx-2"><i class="material-icons d-bigger">mood</i></button>
+                <button id="file_btn_<%=friend.user_id%>" class="file_btn p-1 mx-2"><i class="material-icons d-bigger">attachment</i></button>
+                <input type="text" id="user_input_<%=friend.user_id%>" name="user_input" class="user_input w-100 p-2 bg-white">
+            </div>
+            <button id="send_btn_<%=friend.user_id%>" data-user_id="<%= friend.user_id%>" class="send_btn p-1 ml-2 text-white d-flex justify-content-center align-items-center"><i class="material-icons">send</i></button>
+        </div>
+    </div>
+  <%
+    })
+  %>

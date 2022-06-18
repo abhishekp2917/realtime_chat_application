@@ -1,0 +1,26 @@
+#search_people_section{
+    background-color: #eee;
+    height: 100vh;
+    top: 0;
+    left: -100%;
+    bottom: 0;
+    z-index: 100;
+    transition: left 0.5s;
+}
+
+#search_people_section #search_people_nav_bar{
+    background-color: #008069;
+    height: 10rem;
+}
+
+#search_people_section .add_friend_btn{
+    background-color: #008069;
+}
+
+#search_people_section .remove_friend_btn{
+    background-color: #ec4163;
+}
+
+#search_people_section .cancel_friend_request_btn{
+    background-color: #6e7f7c;
+}
